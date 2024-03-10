@@ -2,8 +2,8 @@ package main
 
 import (
 	"go-todo-api/storage"
-	"go-todo-api/docs"
-	"go-todo-api/routes"
+	// "go-todo-api/docs"
+	"go-todo-api/api/router"
 
 	"github.com/swaggo/files"
 	"github.com/swaggo/gin-swagger"
@@ -16,17 +16,17 @@ import (
 // @host localhost:8080
 // @BasePath /
 func main() {
-	database.Connect()
+	storage.Connect()
 
-	router := routes.SetupRouter()
+	router := router.SetupRouter()
 
 	// // programmatically set swagger info
-	docs.SwaggerInfo.Title = "Swagger Example API"
-	docs.SwaggerInfo.Description = "This is a sample server Petstore server."
-	docs.SwaggerInfo.Version = "1.0"
-	docs.SwaggerInfo.Host = "petstore.swagger.io"
-	docs.SwaggerInfo.BasePath = "/v2"
-	docs.SwaggerInfo.Schemes = []string{"http", "https"}
+	// docs.SwaggerInfo.Title = "Swagger Example API"
+	// docs.SwaggerInfo.Description = "This is a sample server Petstore server."
+	// docs.SwaggerInfo.Version = "1.0"
+	// docs.SwaggerInfo.Host = "petstore.swagger.io"
+	// docs.SwaggerInfo.BasePath = "/v2"
+	// docs.SwaggerInfo.Schemes = []string{"http", "https"}
 
 	// Swagger documentation
 	// url := ginSwagger.URL("http://localhost:8080/docs/swagger.json") // Point to your generated doc.json
